@@ -1,0 +1,4 @@
+entity,same_as
+EPA,eicosapentaenoic acid
+Ω-3-FS,omega-3 fatty acid
+ 

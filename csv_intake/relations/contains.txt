@@ -1,0 +1,5 @@
+entity,contains
+fish oil,EPA
+fish oil,Ω-3-FS
+ 
+ 

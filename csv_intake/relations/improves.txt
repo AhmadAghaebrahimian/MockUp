@@ -1,0 +1,6 @@
+entity,contains
+EPA,blood viscosity
+Ω-3-FS,blood viscosity
+ 
+ 
+ 

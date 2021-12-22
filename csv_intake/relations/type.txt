@@ -1,0 +1,8 @@
+entity,type
+fish oil,natural product
+vasoconstriction,symptom
+blood viscosity,symptom
+platelet aggregation,symptom
+EPA,pharmacy
+Ω-3-FS,pharmacy
+raynaud syndrome,medicine

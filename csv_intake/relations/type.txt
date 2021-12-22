@@ -6,3 +6,11 @@ platelet aggregation,symptom
 EPA,pharmacy
 Ω-3-FS,pharmacy
 raynaud syndrome,medicine
+entity,entity
+fish oil,entity
+vasoconstriction,entity
+blood viscosity,entity
+platelet aggregation,entity
+EPA,entity
+Ω-3-FS,entity
+raynaud syndrome,entity

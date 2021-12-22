@@ -1,4 +1,4 @@
-entity,contains
+entity,reduces
 EPA,platelet aggregation
 EPA,vasoconstriction
 Ω-3-FS,platelet aggregation

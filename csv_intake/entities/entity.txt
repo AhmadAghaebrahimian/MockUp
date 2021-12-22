@@ -1,8 +1,0 @@
-entity,description
-fish oil,fish oil
-vasoconstriction,vasoconstriction
-blood viscosity,blood viscosity
-platelet aggregation,platelet aggregation
-EPA,EPA
-Ω-3-FS,Ω-3-FS
-raynaud syndrome,raynaud syndrome

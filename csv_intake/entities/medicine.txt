@@ -1,2 +1,2 @@
-entity,description
+medicine,description
 raynaud syndrome,A medical syndrome that ...

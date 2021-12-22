@@ -1,2 +1,2 @@
-entity,description
+natural_product,description
 fish oil,A product ...

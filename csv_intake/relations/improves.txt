@@ -1,6 +1,4 @@
-entity,improves
+pharmacy,symptom
 EPA,blood viscosity
 Ω-3-FS,blood viscosity
- 
- 
  

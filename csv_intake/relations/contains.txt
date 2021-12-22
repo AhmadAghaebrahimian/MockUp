@@ -1,5 +1,3 @@
-entity,contains
+natural_product,pharmacy
 fish oil,EPA
 fish oil,Ω-3-FS
- 
- 

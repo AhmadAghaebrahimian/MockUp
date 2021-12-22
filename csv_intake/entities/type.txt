@@ -1,0 +1,7 @@
+entity,description
+natural product,natural product
+symptom,symptom
+pharmacy,pharmacy
+medicine,medicine
+entity,entity
+

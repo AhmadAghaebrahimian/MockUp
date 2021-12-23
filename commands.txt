@@ -1,1 +1,147 @@
-jmIdIdOmvpQQ3sCQBNkey_OXjW8iZgj-bmLfoFFZBM0
+Explor:
+LOAD CSV WITH HEADERS FROM 'https://raw.githubusercontent.com/AhmadAghaebrahimian/MockUp/master/csv_intake/entities/entity.txt?token=AK5RQVZRJD5FG7RW3PTYAR3BYMAGA' AS row RETURN row
+
+===================================== ENTITIES =====================================
+Load entities:
+LOAD CSV WITH HEADERS FROM 'https://raw.githubusercontent.com/AhmadAghaebrahimian/MockUp/master/csv_intake/entities/entity.txt' AS row
+CREATE (v:Entity)
+SET v.name = row.entity, v.description = row.description
+
+Load medicine:
+LOAD CSV WITH HEADERS FROM 'https://raw.githubusercontent.com/AhmadAghaebrahimian/MockUp/master/csv_intake/entities/medicine.txt' AS row
+CREATE (v:Medicine)
+SET v.name = row.entity, v.description = row.description
+
+Load natural_product:
+LOAD CSV WITH HEADERS FROM 'https://raw.githubusercontent.com/AhmadAghaebrahimian/MockUp/master/csv_intake/entities/natural_product.txt' AS row
+CREATE (v:Natural_product)
+SET v.name = row.entity, v.description = row.description
+
+Load pharmacy:
+LOAD CSV WITH HEADERS FROM 'https://raw.githubusercontent.com/AhmadAghaebrahimian/MockUp/master/csv_intake/entities/pharmacy.txt' AS row
+CREATE (v:Pharmacy)
+SET v.name = row.entity, v.description = row.description
+
+Load symptoms:
+LOAD CSV WITH HEADERS FROM 'https://raw.githubusercontent.com/AhmadAghaebrahimian/MockUp/master/csv_intake/entities/symptom.txt' AS row
+CREATE (v:Symptom)
+SET v.name = row.entity, v.description = row.description
+
+Load types:
+LOAD CSV WITH HEADERS FROM 'https://raw.githubusercontent.com/AhmadAghaebrahimian/MockUp/master/csv_intake/entities/type.txt' AS row
+CREATE (v:Type)
+SET v.name = row.entity, v.description = row.description
+
+
+===================================== RELATIONSHIPS =====================================
+Load types
+LOAD CSV WITH HEADERS FROM 'https://raw.githubusercontent.com/AhmadAghaebrahimian/MockUp/master/csv_intake/relations/type.txt' AS row
+MATCH (e:Entity {name: row.entity})
+MERGE (t:Type {name: row.type})
+WITH e,t
+MERGE (e)-[:TYPE]->(t)
+
+Load has_symptoms
+LOAD CSV WITH HEADERS FROM 'https://raw.githubusercontent.com/AhmadAghaebrahimian/MockUp/master/csv_intake/relations/has_symptom.txt' AS row
+MATCH (e:Entity {name: row.entity})
+MERGE (s:Symptom {name: row.has_symptom})
+WITH e,s
+MERGE (e)-[:HAS_SYMPTOM]->(s)
+
+Load improves
+LOAD CSV WITH HEADERS FROM 'https://raw.githubusercontent.com/AhmadAghaebrahimian/MockUp/master/csv_intake/relations/improves.txt' AS row
+MATCH (e:Entity {name: row.entity})
+MERGE (s:Symptom {name: row.improves})
+WITH e,s
+MERGE (e)-[:IMPROVES]->(s)
+
+Load reduces
+LOAD CSV WITH HEADERS FROM 'https://raw.githubusercontent.com/AhmadAghaebrahimian/MockUp/master/csv_intake/relations/reduces.txt' AS row
+MATCH (e:Entity {name: row.entity})
+MERGE (s:Symptom {name: row.reduces})
+WITH e,s
+MERGE (e)-[:REDUCES]->(s)
+
+Load same_as
+LOAD CSV WITH HEADERS FROM 'https://raw.githubusercontent.com/AhmadAghaebrahimian/MockUp/master/csv_intake/relations/same_as.txt' AS row
+MATCH (e1:Entity {name: row.entity})
+MERGE (e2:Entity {name: row.same_as})
+WITH e1,e2
+MERGE (e1)-[:SAME_AS]->(e2)
+
+
+===================================== QUERY =====================================
+MATCH (e:Entity) WHERE e.name = 'raynaud syndrome' RETURN e
+MATCH (e:Entity)-[:HAS_SYMPTOM]->(s:Symptom)<-[:IMPROVES]-(p:Entity) RETURN e, s, p
+
+========================================================= DATA MODEL MODIFIED =========================================================
+===================================== ENTITIES =====================================
+ 
+Load medicine:
+LOAD CSV WITH HEADERS FROM 'https://raw.githubusercontent.com/AhmadAghaebrahimian/MockUp/master/csv_intake/entities/medicine.txt' AS row
+CREATE (v:Medicine)
+SET v.name = row.medicine, v.description = row.description
+
+Load natural_product:
+LOAD CSV WITH HEADERS FROM 'https://raw.githubusercontent.com/AhmadAghaebrahimian/MockUp/master/csv_intake/entities/natural_product.txt' AS row
+CREATE (v:Natural_product)
+SET v.name = row.natural_product, v.description = row.description
+
+Load pharmacy:
+LOAD CSV WITH HEADERS FROM 'https://raw.githubusercontent.com/AhmadAghaebrahimian/MockUp/master/csv_intake/entities/pharmacy.txt' AS row
+CREATE (v:Pharmacy)
+SET v.name = row.pharmacy, v.description = row.description
+
+Load symptoms:
+LOAD CSV WITH HEADERS FROM 'https://raw.githubusercontent.com/AhmadAghaebrahimian/MockUp/master/csv_intake/entities/symptom.txt' AS row
+CREATE (v:Symptom)
+SET v.name = row.symptom, v.description = row.description
+
+ 
+===================================== RELATIONSHIPS =====================================
+ 
+Load has_symptoms
+LOAD CSV WITH HEADERS FROM 'https://raw.githubusercontent.com/AhmadAghaebrahimian/MockUp/master/csv_intake/relations/has_symptom.txt' AS row
+MATCH (m:Medicine {name: row.medicine})
+MERGE (s:Symptom {name: row.symptom})
+WITH m,s
+MERGE (m)-[:HAS_SYMPTOM]->(s)
+
+Load improves
+LOAD CSV WITH HEADERS FROM 'https://raw.githubusercontent.com/AhmadAghaebrahimian/MockUp/master/csv_intake/relations/improves.txt' AS row
+MATCH (p:Pharmacy {name: row.pharmacy})
+MERGE (s:Symptom {name: row.symptom})
+WITH p,s
+MERGE (p)-[:IMPROVES]->(s)
+
+Load reduces
+LOAD CSV WITH HEADERS FROM 'https://raw.githubusercontent.com/AhmadAghaebrahimian/MockUp/master/csv_intake/relations/reduces.txt' AS row
+MATCH (p:Pharmacy {name: row.pharmacy})
+MERGE (s:Symptom {name: row.symptom})
+WITH p,s
+MERGE (p)-[:REDUCES]->(s)
+
+Load same_as
+LOAD CSV WITH HEADERS FROM 'https://raw.githubusercontent.com/AhmadAghaebrahimian/MockUp/master/csv_intake/relations/same_as.txt' AS row
+MATCH (p1:Pharmacy {name: row.pharmacy})
+MERGE (p2:Pharmacy {name: row.pharmacy})
+WITH p1,p2
+MERGE (p1)-[:SAME_AS]->(p2)
+
+Load contains
+LOAD CSV WITH HEADERS FROM 'https://raw.githubusercontent.com/AhmadAghaebrahimian/MockUp/master/csv_intake/relations/contains.txt' AS row
+MATCH (n:Natural_product {name: row.natural_product})
+MERGE (p:Pharmacy {name: row.pharmacy})
+WITH n,p
+MERGE (n)-[:CONTAINS]->(p)
+
+
+=============================== QUERIES =======================
+MATCH (m:Medicine)-[:HAS_SYMPTOM]->(s:Symptom)<-[:IMPROVES]-(p:Pharmacy) RETURN m, s, p
+there are dieses and those deises has symptomes and some phramacy improves those symptomes: give me those pharmacies
+MATCH (m:Medicine)-[:HAS_SYMPTOM]->(s:Symptom)<-[:REDUCES]-(p:Pharmacy) RETURN m, s, p
+there are dieses and those deises has symptomes and some phramacy erduces those symptomes: give me those pharmacies
+MATCH (m:Medicine)-[:HAS_SYMPTOM]->(s:Symptom)<-[:REDUCES]-(p:Pharmacy)<-[:CONTAINS]-(n:Natural_product) RETURN m, s, p, n
+there are dieses and those deises has symptomes and some phramacy erduces those symptomes and some NP contains those pharmacies: give me those NP
+
+

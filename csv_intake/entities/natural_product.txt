@@ -1,2 +1,2 @@
 natural_product,description
-fish oil,A product ...
+fish oil,natural_product

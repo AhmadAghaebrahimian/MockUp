@@ -1,2 +1,2 @@
 natural_product,description
-fish oil,np
+fish oil,natural_product

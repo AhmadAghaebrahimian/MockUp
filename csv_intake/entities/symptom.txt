@@ -1,4 +1,4 @@
 symptom,description
-vasoconstriction,pharmacy
-blood viscosity,pharmacy
-platelet aggregation,pharmacy
+vasoconstriction,symptom
+blood viscosity,symptom
+platelet aggregation,symptom

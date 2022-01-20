@@ -1,0 +1,10 @@
+pharmacy,description
+EPA,pharmacy
+Ω-3-FS,pharmacy
+eicosapentaenoic acid,pharmacy
+omega-3 fatty acid,pharmacy
+curcumin,pharmacy
+curcuma longa,pharmacy
+turmeric,pharmacy
+finasteride,pharmacy
+isobutyramide,pharmacy

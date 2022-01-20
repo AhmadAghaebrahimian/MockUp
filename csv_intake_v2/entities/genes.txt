@@ -1,0 +1,13 @@
+gene,description
+NF-κB,gene
+AP-1,gene
+COX-2,gene
+IL-1β,gene
+JNK,gene
+TNF-α,gene
+IL-4,gene
+IL-6,gene
+IL-12,gene
+IFN-γ,gene
+
+

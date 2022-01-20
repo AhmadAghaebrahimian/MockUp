@@ -1,0 +1,6 @@
+symptom,description
+vasoconstriction,symptom
+blood viscosity,symptom
+platelet aggregation,symptom
+prostatic_hypertrophy,symptom
+eczema,symptom

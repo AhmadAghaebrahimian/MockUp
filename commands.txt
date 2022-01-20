@@ -1,4 +1,4 @@
-Explor:
+Explore:
 LOAD CSV WITH HEADERS FROM 'https://raw.githubusercontent.com/AhmadAghaebrahimian/MockUp/master/csv_intake/entities/entity.txt?token=AK5RQVZRJD5FG7RW3PTYAR3BYMAGA' AS row RETURN row
 
 ===================================== ENTITIES =====================================
@@ -123,8 +123,8 @@ MERGE (p)-[:REDUCES]->(s)
 
 Load same_as
 LOAD CSV WITH HEADERS FROM 'https://raw.githubusercontent.com/AhmadAghaebrahimian/MockUp/master/csv_intake/relations/same_as.txt' AS row
-MATCH (p1:Pharmacy {name: row.pharmacy})
-MERGE (p2:Pharmacy {name: row.pharmacy})
+MATCH (p1:Pharmacy {name: row.pharmacy_s})
+MERGE (p2:Pharmacy {name: row.pharmacy_t})
 WITH p1,p2
 MERGE (p1)-[:SAME_AS]->(p2)
 

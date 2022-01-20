@@ -1,0 +1,4 @@
+e1,e2
+EPA,blood viscosity
+Ω-3-FS,blood viscosity
+ 

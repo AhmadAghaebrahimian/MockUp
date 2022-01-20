@@ -1,0 +1,9 @@
+e1,e2
+IL-1β,cell proliferation
+COX-2,cell proliferation
+JNK,cell proliferation
+NF-κB,cell proliferation
+IL-1β,leukocyte
+COX-2,leukocyte
+JNK,leukocyte
+NF-κB,leukocyte

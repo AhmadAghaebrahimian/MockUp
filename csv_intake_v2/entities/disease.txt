@@ -1,0 +1,14 @@
+disease,description
+raynaud syndrome,disease
+IBD,disease
+Irritable Bowel Diseases,disease
+EAE,disease
+Experimental Autoimmune Encephalomyelitis,disease
+sclerosis,disease
+retinopathy,disease
+diabetic retinopathies,disease
+ocular inflammation,disease
+glaucoma,disease
+spinal cord injuries,disease
+psoriasis,disease
+beta_thalassemia,disease

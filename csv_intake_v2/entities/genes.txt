@@ -9,5 +9,7 @@ IL-4,gene
 IL-6,gene
 IL-12,gene
 IFN-γ,gene
+c-Jun amino(N)-terminal kinase, gene
+nuclear factor-kappa B,gene
 
 

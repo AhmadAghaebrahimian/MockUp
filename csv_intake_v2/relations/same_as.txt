@@ -1,9 +1,0 @@
-e1,e2
-EPA,eicosapentaenoic acid
-Ω-3-FS,omega-3 fatty acid
-curcumin,curcuma longa
-curcumin,turmeric
-JNK,c-Jun amino(N)-terminal kinase
-NF-κB,nuclear factor-kappa B
-IBD,Irritable Bowel Diseases
-EAE,Experimental Autoimmune Encephalomyelitis

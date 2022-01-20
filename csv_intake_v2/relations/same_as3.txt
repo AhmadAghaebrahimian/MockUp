@@ -1,0 +1,3 @@
+e1,e2
+JNK,c-Jun amino(N)-terminal kinase
+NF-κB,nuclear factor-kappa B

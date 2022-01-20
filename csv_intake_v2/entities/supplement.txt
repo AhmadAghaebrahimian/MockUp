@@ -1,0 +1,19 @@
+supplement,description
+echinacea,supplement
+grape seed extract,supplement
+kava preparation,supplement
+ginseng,supplement
+prednisone,supplement
+cyclophosphamide,supplement
+glucosamine,supplement
+melatonin,supplement
+cyclophosphamide,supplement
+docetaxel,supplement
+everolimus,supplement
+fluorouracil,supplement
+toremifine,supplement
+exemestane,supplement
+ginkgo bilob extract,supplement
+vitamin E,supplement
+
+ 

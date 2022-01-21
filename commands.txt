@@ -309,22 +309,16 @@ MERGE (p2:Pharmacy {name: row.e2})
 WITH p1,p2
 MERGE (p1)-[:SAME_AS]->(p2)
 
-Load same_as
-LOAD CSV WITH HEADERS FROM 'https://raw.githubusercontent.com/AhmadAghaebrahimian/MockUp/master/csv_intake_v2/relations/same_as2.txt' AS row
-MATCH (p1:Pharmacy {name: row.e1})
-MERGE (p2:Pharmacy {name: row.e2})
-WITH p1,p2
-MERGE (p1)-[:SAME_AS]->(p2)
 
 Load same_as
-LOAD CSV WITH HEADERS FROM 'https://raw.githubusercontent.com/AhmadAghaebrahimian/MockUp/master/csv_intake_v2/relations/same_as3.txt' AS row
+LOAD CSV WITH HEADERS FROM 'https://raw.githubusercontent.com/AhmadAghaebrahimian/MockUp/master/csv_intake_v2/relations/same_as2.txt' AS row
 MATCH (p1:Gene {name: row.e1})
 MERGE (p2:Gene {name: row.e2})
 WITH p1,p2
 MERGE (p1)-[:SAME_AS]->(p2)
 
 Load same_as
-LOAD CSV WITH HEADERS FROM 'https://raw.githubusercontent.com/AhmadAghaebrahimian/MockUp/master/csv_intake_v2/relations/same_as4.txt' AS row
+LOAD CSV WITH HEADERS FROM 'https://raw.githubusercontent.com/AhmadAghaebrahimian/MockUp/master/csv_intake_v2/relations/same_as3.txt' AS row
 MATCH (p1:Disease {name: row.e1})
 MERGE (p2:Disease {name: row.e2})
 WITH p1,p2

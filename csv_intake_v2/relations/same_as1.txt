@@ -1,3 +1,5 @@
 e1,e2
 EPA,eicosapentaenoic acid
 Ω-3-FS,omega-3 fatty acid
+curcumin,curcuma longa
+curcumin,turmeric

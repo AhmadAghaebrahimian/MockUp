@@ -353,4 +353,7 @@ there are dieses and those deises has symptomes and some phramacy erduces those 
 MATCH (m:Medicine)-[:HAS_SYMPTOM]->(s:Symptom)<-[:REDUCES]-(p:Pharmacy)<-[:CONTAINS]-(n:Natural_product) RETURN m, s, p, n
 there are dieses and those deises has symptomes and some phramacy erduces those symptomes and some NP contains those pharmacies: give me those NP
 
-
+Open swanson:
+MATCH (a:Pharmacy)-[p1]-(b)-[p2]-(c) RETURN a, p1, b, p2, c
+Close swanson:
+MATCH (a:Supplement)-[p1]-(b)-[p2]-(c:Supplement) RETURN a, p1, b, p2, c

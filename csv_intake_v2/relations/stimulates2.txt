@@ -1,4 +1,3 @@
 e1,e2
 P-glycoprotein,vitamin E
 COX2,docetaxel
- 

@@ -15,5 +15,3 @@ toremifine,supplement
 exemestane,supplement
 ginkgo bilob extract,supplement
 vitamin E,supplement
-
- 

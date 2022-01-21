@@ -4,4 +4,3 @@ curcumin,AP-1
 curcumin,JNK
 curcumin,TNF-α
 curcumin,COX-2
- 

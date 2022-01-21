@@ -1,2 +1,2 @@
 e1,e2
-gamma-globin,beta_thalassemia
+gamma-glubin,beta_thalassemia

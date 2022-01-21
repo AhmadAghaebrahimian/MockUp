@@ -1,0 +1,7 @@
+e1,e2
+curcumin,IL-12
+curcumin,IL-6
+curcumin,IL-4
+curcumin,IL-1β
+ 
+ 

@@ -1,0 +1,12 @@
+e1,e2
+CYP450,cyclophosphamide
+CYP450,docetaxel
+CYP450,everolimus
+CYP450,fluorouracil
+CYP450,toremifine
+CYP1A1,exemestane
+CYP3A4,docetaxel
+CYP3A,ginkgo bilob extract
+CYP3A,docetaxel
+
+ 

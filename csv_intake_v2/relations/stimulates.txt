@@ -1,7 +1,0 @@
-e1,e2
-echinacea,CYP1A1
-kava preparation,CYP3A4
-P-glycoprotein,vitamin E
-COX2,docetaxel
-isobutyramide,gamma-glubin
- 

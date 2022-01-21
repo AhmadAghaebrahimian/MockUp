@@ -9,7 +9,11 @@ IL-4,gene
 IL-6,gene
 IL-12,gene
 IFN-γ,gene
-c-Jun amino(N)-terminal kinase, gene
+c-Jun amino(N)-terminal kinase,gene
 nuclear factor-kappa B,gene
-
-
+CYP450,gene
+CYP3A,gene
+CYP1A1,gene
+CYP3A4,gene
+CYP3A,gene
+P-glycoprotein,gene

@@ -1,6 +1,4 @@
 e1,e2
-curcumin,IL-12
-curcumin,IL-6
 TNF-α,spinal cord injuries
 IL-12,spinal cord injuries
 IFN-γ,spinal cord injuries

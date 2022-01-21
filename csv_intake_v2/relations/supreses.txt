@@ -1,7 +1,0 @@
-e1,e2
-curcumin,COX-2
-curcumin,NF-κB
-IL-4,inflammation
-IL-4,IBD
-IL-4,crohn's desease
- 

@@ -1,0 +1,7 @@
+e1,e2
+IL-1β,retinopathy
+COX-2,retinopathy
+JNK,retinopathy
+NF-κB,retinopathy
+ 
+ 

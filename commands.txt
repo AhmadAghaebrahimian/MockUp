@@ -76,7 +76,7 @@ MATCH (e:Entity)-[:HAS_SYMPTOM]->(s:Symptom)<-[:IMPROVES]-(p:Entity) RETURN e, s
 
 ========================================================= DATA MODEL MODIFIED =========================================================
 ===================================== ENTITIES =====================================
- 
+
 Load medicine:
 LOAD CSV WITH HEADERS FROM 'https://raw.githubusercontent.com/AhmadAghaebrahimian/MockUp/master/csv_intake/entities/medicine.txt' AS row
 CREATE (v:Medicine)
@@ -135,6 +135,221 @@ MERGE (p:Pharmacy {name: row.pharmacy})
 WITH n,p
 MERGE (n)-[:CONTAINS]->(p)
 
+========================================================= DATA MODEL MODIFIED V2 =========================================================
+===================================== ENTITIES =====================================
+Load disease:
+LOAD CSV WITH HEADERS FROM 'https://raw.githubusercontent.com/AhmadAghaebrahimian/MockUp/master/csv_intake_v2/entities/disease.txt' AS row
+CREATE (v:Disease)
+SET v.name = row.disease, v.description = row.description
+
+Load natural_product:
+LOAD CSV WITH HEADERS FROM 'https://raw.githubusercontent.com/AhmadAghaebrahimian/MockUp/master/csv_intake_v2/entities/natural_product.txt' AS row
+CREATE (v:Natural_product)
+SET v.name = row.natural_product, v.description = row.description
+
+Load pharmacy:
+LOAD CSV WITH HEADERS FROM 'https://raw.githubusercontent.com/AhmadAghaebrahimian/MockUp/master/csv_intake_v2/entities/pharmacy.txt' AS row
+CREATE (v:Pharmacy)
+SET v.name = row.pharmacy, v.description = row.description
+
+Load symptoms:
+LOAD CSV WITH HEADERS FROM 'https://raw.githubusercontent.com/AhmadAghaebrahimian/MockUp/master/csv_intake_v2/entities/symptom.txt' AS row
+CREATE (v:Symptom)
+SET v.name = row.symptom, v.description = row.description
+
+Load cells:
+LOAD CSV WITH HEADERS FROM 'https://raw.githubusercontent.com/AhmadAghaebrahimian/MockUp/master/csv_intake_v2/entities/cell.txt' AS row
+CREATE (v:Cell)
+SET v.name = row.cell, v.description = row.description
+
+Load genes:
+LOAD CSV WITH HEADERS FROM 'https://raw.githubusercontent.com/AhmadAghaebrahimian/MockUp/master/csv_intake_v2/entities/genes.txt' AS row
+CREATE (v:Gene)
+SET v.name = row.gene, v.description = row.description
+
+Load hormones:
+LOAD CSV WITH HEADERS FROM 'https://raw.githubusercontent.com/AhmadAghaebrahimian/MockUp/master/csv_intake_v2/entities/hormone.txt' AS row
+CREATE (v:Hormone)
+SET v.name = row.hormone, v.description = row.description
+
+Load suppliment:
+LOAD CSV WITH HEADERS FROM 'https://raw.githubusercontent.com/AhmadAghaebrahimian/MockUp/master/csv_intake_v2/entities/supplement.txt' AS row
+CREATE (v:Supplement)
+SET v.name = row.supplement, v.description = row.description
+
+===================================== RELATIONSHIPS =====================================
+
+Load stimulates1
+LOAD CSV WITH HEADERS FROM 'https://raw.githubusercontent.com/AhmadAghaebrahimian/MockUp/master/csv_intake_v2/relations/stimulates1.txt' AS row
+MATCH (p1:Supplement {name: row.e1})
+MERGE (p2:Gene {name: row.e2})
+WITH p1,p2
+MERGE (p1)-[:STIMULATES]->(p2)
+
+Load stimulates2
+LOAD CSV WITH HEADERS FROM 'https://raw.githubusercontent.com/AhmadAghaebrahimian/MockUp/master/csv_intake_v2/relations/stimulates2.txt' AS row
+MATCH (p1:Gene {name: row.e1})
+MERGE (p2:Supplement {name: row.e2})
+WITH p1,p2
+MERGE (p1)-[:STIMULATES]->(p2)
+
+Load stimulates3
+LOAD CSV WITH HEADERS FROM 'https://raw.githubusercontent.com/AhmadAghaebrahimian/MockUp/master/csv_intake_v2/relations/stimulates3.txt' AS row
+MATCH (p1:Pharmacy {name: row.e1})
+MERGE (p2:Cell {name: row.e2})
+WITH p1,p2
+MERGE (p1)-[:STIMULATES]->(p2)
+
+Load regulate
+LOAD CSV WITH HEADERS FROM 'https://raw.githubusercontent.com/AhmadAghaebrahimian/MockUp/master/csv_intake_v2/relations/regulates.txt' AS row
+MATCH (p1:Gene {name: row.e1})
+MERGE (p2:Cell {name: row.e2})
+WITH p1,p2
+MERGE (p1)-[:REGULATE]->(p2)
+
+
+Load involved_in1
+LOAD CSV WITH HEADERS FROM 'https://raw.githubusercontent.com/AhmadAghaebrahimian/MockUp/master/csv_intake_v2/relations/involved_in1.txt' AS row
+MATCH (p1:Gene {name: row.e1})
+MERGE (p2:Disease {name: row.e2})
+WITH p1,p2
+MERGE (p1)-[:INVOLVED_IN]->(p2)
+
+
+Load involved_in2
+LOAD CSV WITH HEADERS FROM 'https://raw.githubusercontent.com/AhmadAghaebrahimian/MockUp/master/csv_intake_v2/relations/involved_in2.txt' AS row
+MATCH (p1:Disease {name: row.e1})
+MERGE (p2:Disease {name: row.e2})
+WITH p1,p2
+MERGE (p1)-[:INVOLVED_IN]->(p2)
+
+
+Load interacts_with
+LOAD CSV WITH HEADERS FROM 'https://raw.githubusercontent.com/AhmadAghaebrahimian/MockUp/master/csv_intake_v2/relations/interacts_with.txt' AS row
+MATCH (p:Pharmacy {name: row.e1})
+MERGE (s:Hormone {name: row.e2})
+WITH p,s
+MERGE (p)-[:INTERACTS_WITH]->(s)
+
+
+Load inhibits1
+LOAD CSV WITH HEADERS FROM 'https://raw.githubusercontent.com/AhmadAghaebrahimian/MockUp/master/csv_intake_v2/relations/inhibits1.txt' AS row
+MATCH (p:Pharmacy {name: row.e1})
+MERGE (s:Gene {name: row.e2})
+WITH p,s
+MERGE (p)-[:INHIBITS]->(s)
+
+Load inhibits2
+LOAD CSV WITH HEADERS FROM 'https://raw.githubusercontent.com/AhmadAghaebrahimian/MockUp/master/csv_intake_v2/relations/inhibits2.txt' AS row
+MATCH (p:Supplement {name: row.e1})
+MERGE (s:Gene {name: row.e2})
+WITH p,s
+MERGE (p)-[:INHIBITS]->(s)
+
+Load inhibits3
+LOAD CSV WITH HEADERS FROM 'https://raw.githubusercontent.com/AhmadAghaebrahimian/MockUp/master/csv_intake_v2/relations/inhibits3.txt' AS row
+MATCH (p:Gene {name: row.e1})
+MERGE (s:Supplement {name: row.e2})
+WITH p,s
+MERGE (p)-[:INHIBITS]->(s)
+
+Load associated_with
+LOAD CSV WITH HEADERS FROM 'https://raw.githubusercontent.com/AhmadAghaebrahimian/MockUp/master/csv_intake_v2/relations/associated_with.txt' AS row
+MATCH (m:Cell {name: row.e1})
+MERGE (s:Disease {name: row.e2})
+WITH m,s
+MERGE (m)-[:ASSOCIATED_WITH]->(s)
+
+Load impacts1
+LOAD CSV WITH HEADERS FROM 'https://raw.githubusercontent.com/AhmadAghaebrahimian/MockUp/master/csv_intake_v2/relations/impacts1.txt' AS row
+MATCH (m:Pharmacy {name: row.e1})
+MERGE (s:Gene {name: row.e2})
+WITH m,s
+MERGE (m)-[:IMPACTS]->(s)
+
+Load impacts2
+LOAD CSV WITH HEADERS FROM 'https://raw.githubusercontent.com/AhmadAghaebrahimian/MockUp/master/csv_intake_v2/relations/impacts2.txt' AS row
+MATCH (m:Gene {name: row.e1})
+MERGE (s:Disease {name: row.e2})
+WITH m,s
+MERGE (m)-[:IMPACTS]->(s)
+
+Load increase
+LOAD CSV WITH HEADERS FROM 'https://raw.githubusercontent.com/AhmadAghaebrahimian/MockUp/master/csv_intake_v2/relations/increases.txt' AS row
+MATCH (m:Hormone {name: row.e1})
+MERGE (s:Symptom {name: row.e2})
+WITH m,s
+MERGE (m)-[:INCREASES]->(s)
+
+Load has_symptoms
+LOAD CSV WITH HEADERS FROM 'https://raw.githubusercontent.com/AhmadAghaebrahimian/MockUp/master/csv_intake_v2/relations/has_symptom.txt' AS row
+MATCH (m:Disease {name: row.e1})
+MERGE (s:Symptom {name: row.e2})
+WITH m,s
+MERGE (m)-[:HAS_SYMPTOM]->(s)
+
+Load improves
+LOAD CSV WITH HEADERS FROM 'https://raw.githubusercontent.com/AhmadAghaebrahimian/MockUp/master/csv_intake_v2/relations/improves.txt' AS row
+MATCH (p:Pharmacy {name: row.e1})
+MERGE (s:Symptom {name: row.e2})
+WITH p,s
+MERGE (p)-[:IMPROVES]->(s)
+
+Load reduces
+LOAD CSV WITH HEADERS FROM 'https://raw.githubusercontent.com/AhmadAghaebrahimian/MockUp/master/csv_intake_v2/relations/reduces.txt' AS row
+MATCH (p:Pharmacy {name: row.e1})
+MERGE (s:Symptom {name: row.e2})
+WITH p,s
+MERGE (p)-[:REDUCES]->(s)
+
+Load same_as
+LOAD CSV WITH HEADERS FROM 'https://raw.githubusercontent.com/AhmadAghaebrahimian/MockUp/master/csv_intake_v2/relations/same_as1.txt' AS row
+MATCH (p1:Pharmacy {name: row.e1})
+MERGE (p2:Pharmacy {name: row.e2})
+WITH p1,p2
+MERGE (p1)-[:SAME_AS]->(p2)
+
+Load same_as
+LOAD CSV WITH HEADERS FROM 'https://raw.githubusercontent.com/AhmadAghaebrahimian/MockUp/master/csv_intake_v2/relations/same_as2.txt' AS row
+MATCH (p1:Pharmacy {name: row.e1})
+MERGE (p2:Pharmacy {name: row.e2})
+WITH p1,p2
+MERGE (p1)-[:SAME_AS]->(p2)
+
+Load same_as
+LOAD CSV WITH HEADERS FROM 'https://raw.githubusercontent.com/AhmadAghaebrahimian/MockUp/master/csv_intake_v2/relations/same_as3.txt' AS row
+MATCH (p1:Gene {name: row.e1})
+MERGE (p2:Gene {name: row.e2})
+WITH p1,p2
+MERGE (p1)-[:SAME_AS]->(p2)
+
+Load same_as
+LOAD CSV WITH HEADERS FROM 'https://raw.githubusercontent.com/AhmadAghaebrahimian/MockUp/master/csv_intake_v2/relations/same_as4.txt' AS row
+MATCH (p1:Disease {name: row.e1})
+MERGE (p2:Disease {name: row.e2})
+WITH p1,p2
+MERGE (p1)-[:SAME_AS]->(p2)
+
+Load contains
+LOAD CSV WITH HEADERS FROM 'https://raw.githubusercontent.com/AhmadAghaebrahimian/MockUp/master/csv_intake_v2/relations/contains.txt' AS row
+MATCH (n:Natural_product {name: row.e1})
+MERGE (p:Pharmacy {name: row.e2})
+WITH n,p
+MERGE (n)-[:CONTAINS]->(p)
+
+Load suppress1
+LOAD CSV WITH HEADERS FROM 'https://raw.githubusercontent.com/AhmadAghaebrahimian/MockUp/master/csv_intake_v2/relations/supreses1.txt' AS row
+MATCH (n:Gene {name: row.e1})
+MERGE (p:Symptom {name: row.e2})
+WITH n,p
+MERGE (n)-[:SUPPRESSES]->(p)
+
+Load suppress2
+LOAD CSV WITH HEADERS FROM 'https://raw.githubusercontent.com/AhmadAghaebrahimian/MockUp/master/csv_intake_v2/relations/supreses2.txt' AS row
+MATCH (n:Gene {name: row.e1})
+MERGE (p:Disease {name: row.e2})
+WITH n,p
+MERGE (n)-[:SUPPRESSES]->(p)
 
 =============================== QUERIES =======================
 MATCH (m:Medicine)-[:HAS_SYMPTOM]->(s:Symptom)<-[:IMPROVES]-(p:Pharmacy) RETURN m, s, p

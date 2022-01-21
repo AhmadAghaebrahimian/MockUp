@@ -2,4 +2,5 @@ e1,e2
 raynaud syndrome,platelet aggregation
 raynaud syndrome,blood viscosity
 raynaud syndrome,vasoconstriction
+psoriasis,eczema
  

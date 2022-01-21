@@ -1,4 +1,3 @@
 e1,e2
-curcumin,IL-4
-testosterone,prostatic_hypertrophy 
+testosterone,prostatic_hypertrophy
  

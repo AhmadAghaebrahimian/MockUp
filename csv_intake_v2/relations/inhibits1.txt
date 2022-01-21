@@ -1,0 +1,7 @@
+e1,e2
+curcumin,NF-κB
+curcumin,AP-1
+curcumin,JNK
+curcumin,TNF-α
+curcumin,COX-2
+ 

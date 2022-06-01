@@ -12,4 +12,4 @@ glaucoma,disease
 spinal cord injuries,disease
 psoriasis,disease
 beta_thalassemia,disease
-crohns desease,disease
+crohns disease,disease
